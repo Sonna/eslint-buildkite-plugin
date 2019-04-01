@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -euo pipefail
+
+ASSETS_PATH=${BUILDKITE_PLUGIN_ESLINT_ASSETS_PATH:"assets"}
+DOCKER_IMAGE_TAG="eslint-node-10"
+PLUGIN_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd)"
+
+echo "--- Build container image at '${PLUGIN_DIR}/Dockerfile'"
+docker build -t "${DOCKER_IMAGE_TAG}" "${PLUGIN_DIR}"
+
+echo "--- Running 'npm run eslint' in built 'Dockerfile'"
+docker run -it --rm \
+  --volume "${PWD}:/app" \
+  --workdir "/app" \
+  "${DOCKER_IMAGE_TAG}"

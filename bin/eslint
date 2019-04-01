@@ -1,3 +1,4 @@
 #!/bin/bash
-# npm ci
-npx eslint "../$ASSETS_PATH/**/*.{js,jsx,ts,tsx}" --ext=js,jsx
+
+cp bin/.eslintrc.js .eslintrc.js
+./bin/node_modules/.bin/eslint "$ASSETS_PATH/**/*.{js,jsx,ts,tsx}" --ext=js,jsx

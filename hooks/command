@@ -13,4 +13,5 @@ echo "--- Running 'npm run eslint' in built 'Dockerfile'"
 docker run -it --rm \
   --volume "${PWD}:/app" \
   --workdir "/app" \
+  --env ASSETS_PATH=$ASSETS_PATH \
   "${DOCKER_IMAGE_TAG}"

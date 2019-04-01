@@ -3,6 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "scripts": {
+        "lint": "eslint \"../$ASSETS_PATH /**/*.{js,jsx,ts,tsx}\" --ext=js,jsx",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
@@ -12,7 +13,8 @@
         "eslint-config-prettier": "^4.1.0",
         "eslint-plugin-jest": "^22.4.1",
         "eslint-plugin-jsx-a11y": "^6.2.1",
-        "eslint-plugin-react": "^7.12.4"
+        "eslint-plugin-react": "^7.12.4",
+        "typescript": "^3.4.1"
     },
     "repository": {
         "type": "git",
